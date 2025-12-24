@@ -1,0 +1,99 @@
+@use "~/styles/helpers" as *;
+
+.header-bottom {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  border-bottom: rem(1) solid var(--color-gray-100);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    height: rem(1);
+    background-color: var(--color-gray-100);
+  }
+
+  @include mobile {
+    padding-block: rem(20);
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: rem(50);
+
+    @include tablet {
+      column-gap: rem(35);
+    }
+
+    @include mobile {
+      column-gap: rem(25);
+    }
+  }
+
+  &__menu {
+    margin-left: auto;
+
+    @include mobile {
+      display: none;
+    }
+
+    &-list {
+      display: flex;
+      column-gap: rem(25);
+
+      @include tablet {
+        column-gap: rem(15);
+      }
+    }
+
+    &-link {
+      @include flex-center(true);
+
+      height: rem(75);
+      position: relative;
+      line-height: 1.56;
+      letter-spacing: -0.02em;
+
+      &::after {
+        content: "";
+        background-color: var(--color-gray-80);
+        height: rem(3);
+        width: 0;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      @include hover(false) {
+        &::after {
+          width: 100%;
+        }
+      }
+
+			&.active {
+				&::after {
+					background-color: var(--color-accent);
+				}
+			}
+    }
+  }
+
+  &__actions {
+    display: flex;
+    column-gap: rem(20);
+  }
+}
+
+
+.popover {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+}

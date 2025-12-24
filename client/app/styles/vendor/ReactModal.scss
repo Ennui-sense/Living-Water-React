@@ -1,0 +1,22 @@
+@use "../helpers/" as *;
+
+.ReactModal {
+  &__Body--open {
+    overflow: hidden;
+  }
+
+  &__Overlay {
+    opacity: 0;
+		background-color: rgba(17, 17, 17, 0.6) !important;
+		z-index: 900;
+    transition-duration: var(--transition-duration);
+
+		&--after-open {
+			opacity: 1;
+		}
+
+		&--before-close {
+			opacity: 0;
+		}
+  }
+}

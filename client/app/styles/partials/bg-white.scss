@@ -1,0 +1,23 @@
+@use "./../helpers" as *;
+
+.bg-white {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+
+  &:first-of-type {
+    border-radius: 0 0 var(--border-radius-x-large) var(--border-radius-x-large);
+
+    .section:last-child {
+      padding-bottom: rem(200);
+    }
+  }
+
+  &:last-of-type {
+    border-radius: var(--border-radius-x-large);
+    padding-top: rem(200);
+
+    .section:last-child {
+      padding-bottom: rem(200);
+    }
+  }
+}

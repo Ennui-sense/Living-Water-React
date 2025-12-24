@@ -1,0 +1,76 @@
+@use "./../helpers" as *;
+
+body {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: rem(16);
+  line-height: 1.56;
+  letter-spacing: -0.02em;
+  color: var(--color-accent-light);
+  background-color: var(--color-accent-dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a,
+button,
+input,
+label,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+h1,
+.h1,
+h2,
+.h2 {
+  font-weight: 600;
+}
+
+h3,
+.h3,
+h4,
+.h4 {
+  font-weight: 500;
+}
+
+h1,
+.h1 {
+  @include fluid-text(64, 50);
+
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+h2,
+.h2 {
+  font-size: rem(36);
+  line-height: 0.97;
+  letter-spacing: -0.02em;
+}
+
+h3,
+.h3 {
+  font-size: rem(20);
+  line-height: 1.25;
+}
+
+h4,
+.h4 {
+  font-size: rem(16);
+  line-height: 1.56;
+  letter-spacing: -0.02em;
+  color: var(--a-light);
+	opacity: 0.5;
+}
+
+:not(input):focus-visible {
+  outline: rem(2) dashed red;
+  outline-offset: rem(4);
+  transition-duration: 0s !important;
+}

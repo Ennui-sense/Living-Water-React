@@ -1,0 +1,63 @@
+@use "~/styles/helpers/" as *;
+
+.hero {	
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: rem(20);
+		
+		@include tablet {
+			justify-content: center;
+			text-align: center;
+			padding-block: rem(50);
+		}
+
+		@include mobile {
+			padding-block: rem(150);
+		}
+	}
+
+	&__body {
+		max-width: rem(520);
+
+		@include mobile-s {
+			max-width: rem(400);
+		}
+	}
+
+	&__title {
+		margin-bottom: rem(25);
+	}
+
+	&__description {
+		margin-bottom: rem(30);
+	}
+
+	&__image {
+		border-radius: 0 0 0 var(--border-radius-large);
+		width: rem(705);
+		height: auto;
+		margin-right: rem(-75);
+
+		@include desktop {
+			width: 45%;
+		}
+
+		@include tablet {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: rem(1440)) {
+	.hero__image {
+		margin-right: calc(-1 * (100vw - var(--container-width)) / 2);
+	}
+}
+
+@media (max-width: rem(1340)) {
+	.hero__image {
+		margin-right: calc(-1 * var(--container-padding-x));
+	}
+}

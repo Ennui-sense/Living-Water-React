@@ -1,0 +1,34 @@
+@use "~/styles/helpers" as *;
+
+.header-top {
+	padding-block: rem(15);
+	font-size: rem(14);
+	line-height: 1.07;
+
+	@include mobile {
+		display: none;
+	}
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__contacts {
+		display: flex;
+		column-gap: rem(30);
+	}
+
+	&__link {
+		opacity: 0.8;
+
+		@include hover(false) {
+			opacity: 0.6;
+		}
+
+		&:active {
+			opacity: 0.3;
+		}
+	}
+}

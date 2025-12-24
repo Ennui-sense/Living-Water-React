@@ -1,0 +1,130 @@
+@use "~/styles/helpers/" as *;
+
+.section {
+  margin-bottom: fluid(200, 120);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  row-gap: rem(50);
+
+  &--gray {
+    padding-block: rem(200);
+    background-color: var(--color-gray-100);
+    border-radius: var(--border-radius-x-large);
+  }
+
+  &--other {
+    flex-direction: row;
+    column-gap: rem(20);
+    justify-content: space-between;
+
+    .section__header {
+      flex-direction: column;
+      row-gap: rem(25);
+      justify-content: start;
+      max-width: rem(300);
+    }
+
+    @include desktop {
+      flex-direction: column;
+
+      .section__header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 100%;
+      }
+    }
+
+    @include mobile {
+      &:has(.news) {
+        padding-right: 0 !important;
+
+        .section__header {
+					padding-right: var(--container-padding-x);
+				}
+      }
+
+      .section__header {
+        flex-direction: column;
+        align-items: start;
+        row-gap: rem(20);
+        width: 100%;
+      }
+
+      .section__title {
+        max-width: rem(300);
+      }
+
+      .section__buttons {
+        display: flex;
+
+        .button-square {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    width: 100%;
+
+    @include tablet {
+      flex-direction: column;
+      row-gap: rem(20);
+      align-items: center;
+      text-align: center;
+    }
+
+    @include mobile {
+      align-items: start;
+      text-align: left;
+    }
+
+    &--mobile-center {
+      @include mobile {
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  &__title {
+    max-width: rem(400);
+  }
+
+  &__info {
+    max-width: rem(520);
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(25);
+    align-items: start;
+
+    @include tablet {
+      align-items: center;
+    }
+
+    @include mobile {
+      align-items: start;
+      max-width: 100%;
+      width: 100%;
+
+      .button {
+        width: 100%;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    column-gap: rem(10);
+    width: 100%;
+  }
+
+  &__description {
+    opacity: 0.8;
+  }
+}

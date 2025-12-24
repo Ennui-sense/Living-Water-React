@@ -1,0 +1,44 @@
+@use "~/styles/helpers/" as *;
+
+.facts-card {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent-dark);
+  padding: rem(65) rem(50);
+	border-radius: var(--border-radius);
+
+	@include mobile {
+		padding: rem(50) rem(30);
+	}
+
+  &__title {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+		column-gap: rem(20);
+
+		@include desktop {
+			flex-direction: column;
+			row-gap: rem(10)
+		}
+
+    &-accent {
+			@include fluid-text(64, 50);
+
+      font-weight: 600;
+      line-height: 0.94;
+      letter-spacing: -0.03em;
+    }
+
+    &-simple {
+      font-size: rem(18);
+      line-height: 1.39;
+      letter-spacing: -0.02em;
+			max-width: rem(200);
+			opacity: 0.8;
+
+			@include desktop {
+				max-width: 100%;
+			}
+    }
+  }
+}

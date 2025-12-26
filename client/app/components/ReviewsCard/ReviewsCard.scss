@@ -1,0 +1,54 @@
+@use "~/styles/helpers/" as *;
+
+.reviews-card {
+  display: flex;
+  background-color: var(--color-accent-light);
+  border-radius: var(--border-radius);
+  padding: rem(55) rem(40);
+  height: rem(380);
+  color: var(--color-accent-dark);
+
+	@include mobile {
+		padding: rem(50) rem(30);
+	}
+
+	@include mobile-s {
+		padding: rem(40) rem(25);
+	}
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: start;
+    column-gap: rem(15);
+    margin-top: auto;
+  }
+
+  &__img {
+		@include square(rem(48));
+		@include flex-center(true);
+
+		border-radius: 50%;
+		padding: rem(4);
+		background-color: var(--color-light);
+
+    &::after {
+			@include square(rem(30));
+
+      content: "";
+      background: url("~/assets/icons/reviews-logo.svg") center / cover no-repeat;
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+  }
+
+  &__city {
+    opacity: 0.8;
+  }
+}

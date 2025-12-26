@@ -6,6 +6,7 @@ import Steps from "~/sections/Steps/Steps";
 import Benefits from "~/sections/Benefits/Benefits";
 import Products from "~/sections/Products/Products";
 import Machine from "~/sections/Machine/Machine";
+import Reviews from "~/sections/Reviews/Reviews";
 
 export function meta() {
   return [
@@ -29,7 +30,7 @@ export default function IndexRoute() {
       <Machine />
 
       <div className="bg-white">
-        <Hero />
+        <Reviews />
       </div>
     </Page>
   );

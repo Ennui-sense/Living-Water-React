@@ -1,0 +1,50 @@
+@use "~/styles/helpers/" as *;
+
+.reviews {
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
+    gap: rem(30);
+    grid-template-areas:
+      "card-1 card-2 card-2 card-2"
+      "card-3 card-4 card-4 card-5"
+      "card-6 card-6 card-7 card-7";
+
+    @include desktop {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "card-1 card-2"
+        "card-3 card-4"
+        "card-5 card-6"
+        "card-7 card-7";
+    }
+  }
+
+  &__item {
+    min-width: rem(410);
+
+    @include tablet {
+      min-width: rem(340);
+    }
+
+    @include mobile {
+      min-width: rem(400);
+    }
+
+		@include mobile-s {
+			min-width: 100%;
+		}
+
+		@for $i from 1 through 7 {
+			&:nth-child(#{$i}) {
+				grid-area: card-#{$i};
+			}
+		}
+  }
+
+  &__inner {
+    @include mobile {
+      padding-right: 0 !important;
+    }
+  }
+}

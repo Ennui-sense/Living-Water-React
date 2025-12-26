@@ -1,0 +1,38 @@
+@use "~/styles/helpers/" as *;
+
+.reviews-video {
+	&__preview {
+		position: relative;
+		border-radius: var(--border-radius);
+		height: rem(380);
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background-color: var(--color-dark);
+			opacity: 0.7;
+			border-radius: inherit;
+		}
+
+		@include hover(false) {
+			.video-button {
+				opacity: 0.6;
+			}
+		}
+
+		&:active {
+			.video-button {
+				opacity: 0.3;
+			}
+		}
+
+		&-img {
+			border-radius: inherit;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center center;
+		}
+	}
+}

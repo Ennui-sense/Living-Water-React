@@ -1,13 +1,13 @@
-import "./Logo.scss";
+import "./HeaderLogo.scss";
 
-import LogoImageSrc from "~/assets/images/logo.svg";
+import HeaderLogoImageSrc from "~/assets/images/logo.svg";
 
-const Logo = () => {
+const HeaderLogo = () => {
   return (
     <figure className="logo">
       <a href="#" className="logo__link">
         <img
-          src={LogoImageSrc}
+          src={HeaderLogoImageSrc}
           alt="Логотип нашей компании"
           className="logo__image"
         />
@@ -20,4 +20,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default HeaderLogo;

@@ -1,0 +1,63 @@
+@use "~/styles/helpers/" as *;
+
+.footer-contacts {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(40);
+	width: rem(300);
+
+	@include tablet {
+		width: rem(200);
+	}
+
+	@include mobile {
+		row-gap: rem(20);
+	}
+
+	@include mobile-s {
+		width: 100%;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(15);
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(30);
+
+		@include mobile {
+			row-gap: rem(20);
+		}
+	}
+
+	&__block {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(10);
+
+		@include mobile {
+			row-gap: rem(5);
+		}
+	}
+
+	&__soc1als {
+		&-list {
+			display: flex;
+			column-gap: rem(20);
+		}
+
+		&-link {
+			@include hover(false) {
+				opacity: 0.6;
+			}
+
+			&:active {
+				opacity: 0.3;
+			}
+		}
+	}
+}

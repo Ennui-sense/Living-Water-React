@@ -1,0 +1,40 @@
+@use "~/styles/helpers/" as *;
+
+.footer {
+	padding-bottom: rem(30);
+	
+	@include mobile {
+		padding-bottom: rem(50);
+	}
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(125);
+
+		@include mobile {
+			row-gap: rem(75);
+		}
+	}
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+		@include mobile {
+			flex-direction: column;
+			row-gap: rem(75);
+		}
+  }
+
+  &__info {
+    display: flex;
+    column-gap: rem(30);
+
+		@include mobile-s {
+			flex-direction: column;
+			row-gap: rem(50);
+		}
+  }
+}

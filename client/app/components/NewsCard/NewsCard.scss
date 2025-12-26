@@ -98,7 +98,7 @@
         @include flex-center;
 
         content: "";
-        background: url(@/assets/icons/arrow-right.svg) center / cover no-repeat;
+        background: url(~/assets/icons/arrow-right.svg) center / cover no-repeat;
       }
 
       @include hover(false) {

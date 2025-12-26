@@ -3,11 +3,11 @@ import "./Hero.scss";
 import HeroImageSrc from "~/assets/images/hero-img.jpg";
 
 import Button from "~/components/Button/Button";
-// import ModalFeedback from "~/components/ModalFeedback/ModalFeedback";
+import ModalFeedback from "~/components/ModalFeedback/ModalFeedback";
 
 import { useState } from "react";
 
-// import { modalFeedbackData } from "@/data/modalFeedbackData";
+import { ModalsFeedbackData } from "~/data/ModalsFeedbackData";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -33,19 +33,19 @@ const Hero = () => {
             <Button isLarge onClick={openModal}>
               Скачать бизнес-план
             </Button>
-            {/* {modalFeedbackData.map(
-              (item) =>
-                item.name === "plan" && (
+            {ModalsFeedbackData.map(
+              (modal) =>
+                modal.modalType === "plan" && (
                   <ModalFeedback
                     closeModal={closeModal}
                     isOpen={isOpen}
-                    title={item.title}
-                    description={item.description}
-                    buttonText={item.buttonText}
-                    inputsInfo={item.inputsInfo}
+                    title={modal.title}
+                    description={modal.description}
+                    buttonText={modal.buttonText}
+                    inputs={modal.inputs}
                   />
                 )
-            )} */}
+            )}
           </div>
 
           <img

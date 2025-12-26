@@ -2,10 +2,10 @@ import "./Section.scss";
 
 import Button from "~/components/Button/Button";
 import ButtonSquare from "~/components/ButtonSquare/ButtonSquare";
-// import ModalFeedback from "../ModalFeedback/ModalFeedback";
+import ModalFeedback from "~/components/ModalFeedback/ModalFeedback";
 
 import { SectionsData } from "~/data/SectionsData";
-// import { modalFeedbackData } from "@/data/modalFeedbackData";
+import { ModalsFeedbackData } from "~/data/ModalsFeedbackData";
 
 import type { ReactNode } from "react";
 import { useState } from "react";
@@ -42,13 +42,13 @@ const Section = ({
     (section) => section.name === sectionName
   );
 
-  // const mailingModal = modalFeedbackData.find(
-  //   (modal) => modal.name === "mailing"
-  // );
+  const mailingModal = ModalsFeedbackData.find(
+    (modal) => modal.modalType === "mailing"
+  );
 
-  // if (!mailingModal || !currentSection) {
-  //   return null;
-  // }
+  if (!mailingModal || !currentSection) {
+    return null;
+  }
 
 	if (!currentSection) {
 		return null
@@ -93,14 +93,14 @@ const Section = ({
               </ButtonSquare>
             )}
 
-            {/* <ModalFeedback
+            <ModalFeedback
               isOpen={isOpen}
               closeModal={closeModal}
               title={mailingModal.title}
               description={mailingModal.description}
-              inputsInfo={mailingModal.inputsInfo}
+              inputs={mailingModal.inputs}
               buttonText={mailingModal.buttonText}
-            /> */}
+            />
           </div>
         </div>
       </header>

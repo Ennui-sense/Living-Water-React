@@ -1,6 +1,6 @@
 import "./HeaderBottom.scss";
 
-import Logo from "~/components/Logo/Logo";
+import Logo from "~/components/HeaderLogo/HeaderLogo";
 import ButtonSquare from "~/components/ButtonSquare/ButtonSquare";
 import HeaderBottomMenu from "../HeaderBottomMenu/HeaderBottomMenu";
 // import Cart from "~/components/Cart/Cart";

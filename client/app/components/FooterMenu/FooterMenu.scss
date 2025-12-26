@@ -1,0 +1,18 @@
+@use "~/styles/helpers/" as *;
+
+.footer-menu {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(15);
+	width: rem(300);
+
+	@include tablet {
+		width: rem(200);
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(10);
+	}
+}

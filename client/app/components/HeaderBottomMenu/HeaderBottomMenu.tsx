@@ -1,10 +1,10 @@
-import { headerMenuLinks } from "~/data/HeaderMenuLinks";
+import { HeaderMenuLinksData } from "~/data/HeaderMenuLinksData";
 
 const HeaderBottomMenu = () => {
   return (
     <nav className="header-bottom__menu">
       <ul className="header-bottom__menu-list">
-        {headerMenuLinks.map(({ text, href, id }) => (
+        {HeaderMenuLinksData.map(({ text, href, id }) => (
           <li className="header-bottom__menu-item" key={id}>
             <a href={href} className="header-bottom__menu-link">
               {text}

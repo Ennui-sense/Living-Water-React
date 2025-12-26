@@ -1,0 +1,25 @@
+@use "~/styles/helpers/" as *;
+
+.cta {
+  color: var(--color-accent-dark);
+  height: rem(540);
+
+  &__inner {
+    @include flex-center;
+
+    flex-direction: column;
+		row-gap: rem(25);
+    background-color: var(--color-accent-light);
+    height: 100%;
+		border-radius: var(--border-radius-large);
+  }
+
+  &__title {
+		@include fluid-text(48, 35);
+
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+		text-align: center;
+  }
+}

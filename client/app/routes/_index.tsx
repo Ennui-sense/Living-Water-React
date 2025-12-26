@@ -8,6 +8,7 @@ import Products from "~/sections/Products/Products";
 import Machine from "~/sections/Machine/Machine";
 import Reviews from "~/sections/Reviews/Reviews";
 import News from "~/sections/News/News";
+import Cta from "~/sections/Cta/Cta";
 
 export function meta() {
   return [
@@ -34,6 +35,8 @@ export default function IndexRoute() {
         <Reviews />
         <News />
       </div>
+
+      <Cta />
     </Page>
   );
 }

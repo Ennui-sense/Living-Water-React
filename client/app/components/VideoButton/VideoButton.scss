@@ -1,0 +1,42 @@
+@use "~/styles/helpers/" as *;
+
+.video-button {
+  @include flex-center(true);
+  @include square(rem(115));
+  @include button-reset;
+
+  background-color: var(--color-light);
+  border-radius: 50%;
+  color: var(--color-accent);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 800;
+
+  svg {
+    @include square(rem(35));
+  }
+
+  @include hover(false) {
+    color: var(--color-accent-dark);
+  }
+
+  &:active {
+    svg * {
+      opacity: 0.5;
+    }
+  }
+
+	&--small {
+		@include square(rem(35));
+
+		color: var(--color-accent-light);
+		opacity: 1;
+		background-color: transparent;
+
+		@include hover {
+			color: var(--color-accent-light)
+		}
+	}
+}

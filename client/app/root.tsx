@@ -19,7 +19,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="icon" href="/favicon.png" sizes="48x48"></link>
         <Meta />
       </head>
-      <body>
+      <body id="root">
         {children}
         <ScrollRestoration />
         <Scripts />

@@ -7,6 +7,7 @@ import Benefits from "~/sections/Benefits/Benefits";
 import Products from "~/sections/Products/Products";
 import Machine from "~/sections/Machine/Machine";
 import Reviews from "~/sections/Reviews/Reviews";
+import News from "~/sections/News/News";
 
 export function meta() {
   return [
@@ -31,6 +32,7 @@ export default function IndexRoute() {
 
       <div className="bg-white">
         <Reviews />
+        <News />
       </div>
     </Page>
   );

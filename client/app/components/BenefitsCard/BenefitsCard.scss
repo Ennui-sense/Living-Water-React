@@ -1,0 +1,43 @@
+@use "~/styles/helpers/" as *;
+
+.benefits-card {
+	padding: rem(50) rem(40) 0;
+	border-radius: var(--border-radius);
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(30);
+	height: rem(290);
+	position: relative;
+
+	@include tablet {
+		height: rem(400);
+		padding: rem(40) rem(25) 0;
+	}
+
+	@include mobile {
+		height: rem(265);
+	}
+
+	&--1 {
+		background-color: var(--color-accent-dark);
+		color: var(--color-accent-light);
+		z-index: 3;
+	}
+
+	&--2 {
+		background-color: var(--color-accent-light);
+		color: var(--color-accent-dark);
+		z-index: 2;
+	}
+
+	&--3 {
+		background-color: var(--color-gray-100);
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(10);
+	}
+}
+

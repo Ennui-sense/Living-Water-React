@@ -1,0 +1,27 @@
+@use "~/styles/helpers/" as *;
+
+.benefits {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+		@include tablet {
+			column-gap: rem(20);
+		}
+
+		@include mobile {
+			grid-template-columns: repeat(1, 1fr);
+			row-gap: rem(15);
+		}
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: rem(-20);
+
+			@include tablet {
+				margin-right: 0;
+			}
+    }
+  }
+}

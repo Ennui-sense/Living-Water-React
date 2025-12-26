@@ -1,0 +1,17 @@
+@use "~/styles/helpers/" as *;
+
+.products {
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: rem(40) rem(30);
+
+		@include tablet {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include mobile {
+			gap: rem(30) rem(15)
+		}
+	}
+}

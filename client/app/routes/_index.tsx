@@ -2,6 +2,9 @@ import Page from "~/layouts/Page/Page";
 import Hero from "~/sections/Hero/Hero";
 import About from "~/sections/About/About";
 import Facts from "~/sections/Facts/Facts";
+import Steps from "~/sections/Steps/Steps";
+import Benefits from "~/sections/Benefits/Benefits";
+import Products from "~/sections/Products/Products";
 
 export function meta() {
   return [
@@ -17,6 +20,9 @@ export default function IndexRoute() {
         <Hero />
         <About />
         <Facts />
+        <Steps />
+        <Benefits />
+        <Products />
       </div>
 
       <div className="bg-white">

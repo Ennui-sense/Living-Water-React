@@ -8,6 +8,8 @@ import {
 
 import "./styles/main.scss";
 
+import { CartProvider } from "./contexts/CartContext";
+
 import type { Route } from "./+types/root";
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -29,7 +31,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <CartProvider>
+      <Outlet />
+    </CartProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

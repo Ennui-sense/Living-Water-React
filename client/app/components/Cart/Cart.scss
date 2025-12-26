@@ -1,0 +1,110 @@
+@use "~/styles/helpers/" as *;
+
+.cart {
+  width: rem(680);
+  position: absolute;
+  top: 0;
+  right: rem(-400);
+  height: 100vh;
+  background-color: var(--color-light);
+  transition-duration: var(--transition-duration);
+  color: var(--color-dark);
+
+  &--after-open {
+    right: 0;
+  }
+
+  &--before-close {
+    right: -400px;
+  }
+
+  &__filled {
+    &-inner {
+      padding: rem(80) rem(60) 0;
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(40);
+      height: 100%;
+    }
+
+    &-header {
+      display: flex;
+      column-gap: rem(15);
+    }
+
+    &-count {
+      font-size: rem(14);
+      line-height: 1.07;
+      color: var(--color-gray-60);
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(50);
+    }
+
+    &-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: rem(40);
+      margin-top: auto;
+    }
+
+    &-total {
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(5);
+    }
+
+    &-text {
+      color: var(--color-gray-60);
+    }
+
+    &-amount {
+      font-weight: 500;
+      font-size: rem(28);
+      line-height: 0.89;
+    }
+
+    &-rubles {
+      color: var(--color-gray-80);
+    }
+  }
+
+  &__empty {
+    &-inner {
+      padding: rem(150) rem(60);
+    }
+
+    &-info {
+      max-width: rem(450);
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(30);
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(25);
+    }
+
+    &-title {
+      max-width: rem(350);
+      font-size: rem(48);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+
+    &-description {
+      opacity: 0.8;
+    }
+
+    &-buttons {
+      display: flex;
+      column-gap: rem(10);
+    }
+  }
+}

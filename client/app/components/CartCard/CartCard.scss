@@ -1,0 +1,70 @@
+@use "~/styles/helpers" as *;
+
+.cart-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(10);
+
+	@include hover {
+		.cart-card-count {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(20);
+    align-items: end;
+  }
+
+  &__left {
+    display: flex;
+    column-gap: rem(25);
+    align-items: center;
+  }
+
+  &__wrapper-image {
+    @include flex-center(true);
+
+    background-color: var(--color-accent-light);
+    border-radius: var(--border-radius-small);
+    padding: rem(8);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(15);
+  }
+
+  &__title {
+    font-size: rem(16);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    max-width: rem(250);
+  }
+
+  &__buttons {
+    display: flex;
+    column-gap: rem(15);
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(15);
+  }
+
+  &__price {
+    font-size: rem(16);
+    line-height: 1.56;
+    letter-spacing: -0.02em;
+    text-align: end;
+  }
+
+  &__ruble {
+    color: var(--color-gray-80);
+  }
+}

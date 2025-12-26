@@ -1,0 +1,31 @@
+@use "~/styles/helpers" as *;
+
+.cart-card-count {
+  display: flex;
+  align-items: center;
+	border: var(--border);
+	border-radius: var(--border-radius-small);
+	border-color: var(--color-gray-90);
+	opacity: 0;
+	visibility: hidden;
+	transition-duration: var(--transition-duration);
+
+  &__button {
+    @include button-reset;
+    @include flex-center(true);
+    @include square(rem(35));
+
+    color: var(--color-gray-80);
+
+		@include hover {
+			color: var(--color-dark);
+		}
+  }
+
+  &__value {
+    font-size: rem(14);
+    line-height: 1.07;
+		width: rem(20);
+		text-align: center;
+  }
+}

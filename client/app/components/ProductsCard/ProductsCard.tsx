@@ -6,7 +6,7 @@ import ButtonSquare from "../ButtonSquare/ButtonSquare";
 import CompareIcon from "~/assets/icons/compare.svg?react";
 
 import type { IProductsCard } from "~/data/ProductsCardsData";
-// import { useCart } from "@/hooks/useCart";
+import { useCart } from "~/hooks/useCart";
 
 interface ProductsCardProps {
   product: IProductsCard;
@@ -14,7 +14,7 @@ interface ProductsCardProps {
 
 const ProductsCard = ({ product }: ProductsCardProps) => {
   const { imageSrc, imageHoverSrc, isNew, title, price, sizes } = product;
-  // const { addToCart } = useCart();
+  const { addToCart } = useCart();
 
   const sizeLabels: Record<string, string> = {
     height: "Высота",
@@ -65,8 +65,7 @@ const ProductsCard = ({ product }: ProductsCardProps) => {
             </div>
 
             <div className="products-card__buttons">
-              {/* <Button onClick={() => addToCart({...product, count: 1})}>Купить</Button> */}
-              <Button>Купить</Button>
+              <Button onClick={() => addToCart({...product, count: 1})}>Купить</Button>
               <ButtonSquare title="Добавить в сравнение" isLarge>
                 <CompareIcon />
               </ButtonSquare>

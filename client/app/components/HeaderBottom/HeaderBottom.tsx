@@ -3,24 +3,22 @@ import "./HeaderBottom.scss";
 import Logo from "~/components/HeaderLogo/HeaderLogo";
 import ButtonSquare from "~/components/ButtonSquare/ButtonSquare";
 import HeaderBottomMenu from "../HeaderBottomMenu/HeaderBottomMenu";
-// import Cart from "~/components/Cart/Cart";
+import Cart from "~/components/Cart/Cart";
 
 import CartIcon from "~/assets/icons/cart.svg?react";
 import CompareIcon from "~/assets/icons/compare.svg?react";
 import MenuIcon from "~/assets/icons/menu.svg?react";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 
-// import { useCart } from "@/hooks/useCart";
+import { useCart } from "~/hooks/useCart";
 
 const HeaderBottom = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const buttonRef = useRef<HTMLAnchorElement | null>(null);
+  const { cartItems } = useCart();
 
-  // const { cartItems } = useCart();
-
-  // const countCartItems = cartItems.length;
+  const countCartItems = cartItems.length;
 
   const openModal = () => setIsOpen(true);
 
@@ -44,12 +42,12 @@ const HeaderBottom = () => {
           <ButtonSquare
             title="Корзина"
             onClick={openModal}
-            // countProducts={countCartItems}
+            countProducts={countCartItems}
           >
             <CartIcon></CartIcon>
           </ButtonSquare>
 
-          {/* <Cart isOpen={isOpen} closeModal={closeModal}></Cart> */}
+          <Cart isOpen={isOpen} closeModal={closeModal}></Cart>
         </div>
       </div>
     </div>

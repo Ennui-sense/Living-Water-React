@@ -12,13 +12,16 @@ import MenuIcon from "~/assets/icons/menu.svg?react";
 import { useState } from "react";
 
 import { useCart } from "~/hooks/useCart";
+import { useCompare } from "~/hooks/useCompare";
 
 const HeaderBottom = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const { cartItems } = useCart();
+  const { compareItems } = useCompare();
 
   const countCartItems = cartItems.length;
+  const countCompareItems = compareItems.length;
 
   const openModal = () => setIsOpen(true);
 
@@ -36,7 +39,12 @@ const HeaderBottom = () => {
         <HeaderBottomMenu />
 
         <div className="header-bottom__actions">
-          <ButtonSquare title="Сравнение" disabled mobileHidden>
+          <ButtonSquare
+            title="Сравнение"
+            disabled
+            mobileHidden
+            countProducts={countCompareItems}
+          >
             <CompareIcon></CompareIcon>
           </ButtonSquare>
           <ButtonSquare

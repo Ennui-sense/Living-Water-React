@@ -7,7 +7,7 @@ import { useCart } from "~/hooks/useCart";
 
 interface CartCardCountProps {
   id: number;
-	count: number;
+  count: number;
 }
 
 const CartCardCount = ({ id, count }: CartCardCountProps) => {

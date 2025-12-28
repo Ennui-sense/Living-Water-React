@@ -5,7 +5,9 @@ const ProductsList = () => {
   return (
     <ul className="products__list">
       {ProductsCardsData.map((product) => (
-        <ProductsCard product={product} key={product.id}></ProductsCard>
+        <li className="products__item" key={product.id}>
+          <ProductsCard product={product}></ProductsCard>
+        </li>
       ))}
     </ul>
   );

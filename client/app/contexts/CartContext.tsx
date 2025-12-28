@@ -3,7 +3,7 @@ import { CartContext } from "~/hooks/useCart";
 
 interface ICartContext {
   cartItems: Product[];
-  getAmount: () => number;
+  getAmount: () => number;	
   addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
   updateCount: (productId: number, newCount: number) => void;
@@ -29,9 +29,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return [];
   });
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-  }, cartItems);
+	useEffect(() => {
+		localStorage.setItem("cart", JSON.stringify(cartItems));
+	}, [cartItems])
 
   const addToCart = (product: Product) => {
     setCartItems((prev) => {
@@ -70,9 +70,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const value: ICartContext = {
     cartItems,
+    getAmount,
     addToCart,
     removeFromCart,
-    getAmount,
     updateCount,
   };
 

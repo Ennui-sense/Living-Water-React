@@ -9,6 +9,7 @@ import {
 import "./styles/main.scss";
 
 import { CartProvider } from "./contexts/CartContext";
+import { CompareProvider } from "./contexts/CompareContext";
 
 import type { Route } from "./+types/root";
 
@@ -33,7 +34,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <CartProvider>
-      <Outlet />
+      <CompareProvider>
+        <Outlet />
+      </CompareProvider>
     </CartProvider>
   );
 }

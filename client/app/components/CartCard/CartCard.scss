@@ -12,6 +12,13 @@
 		}
 	}
 
+	@include mobile {
+		.cart-card-count {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
   &__header {
     display: flex;
     justify-content: space-between;

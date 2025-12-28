@@ -28,7 +28,6 @@ const ReviewsVideo = ({ reviewVideo }: ReviewsVideoProps) => {
   }
 
   return (
-    <li className="reviews__item">
       <article className="reviews__video reviews-video">
         <div className="reviews-video__preview" onClick={openModal}>
           <img
@@ -54,7 +53,6 @@ const ReviewsVideo = ({ reviewVideo }: ReviewsVideoProps) => {
           <CrossButton isLarge top="-2.5rem" right="-3.125rem" onCloseButtonClick={closeModal} />
         </Modal>
       </article>
-    </li>
   );
 };
 

@@ -1,0 +1,26 @@
+@use "~/styles/helpers" as *;
+
+.breadcrumbs {
+	padding-block: rem(30);
+	display: flex;
+	column-gap: rem(5);
+	color: var(--color-gray-60);
+
+	&__link {
+		display: flex;
+		column-gap: rem(5);
+		align-items: center;
+
+		&::after {
+			@include square(rem(15));
+			@include flex-center(true);
+
+			content: "";
+			background: url("~/assets/icons/navigate-right.svg") center / cover no-repeat;
+		}
+
+		@include hover {
+			color: var(--color-accent)
+		}
+	}
+}

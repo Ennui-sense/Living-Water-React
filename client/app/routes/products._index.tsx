@@ -1,6 +1,9 @@
 import type { Route } from "./+types/products._index";
+
 import qs from "qs";
+
 import Page from "~/layouts/Page/Page";
+import Breadcrumbs from "~/components/Breadcrumbs/Breadcrumbs";
 
 interface IProduct {
   id: number;
@@ -48,15 +51,18 @@ export default function ProductsRoute({ loaderData }: Route.ComponentProps) {
 
   return (
     <Page>
-      <h1>Каталог товаров</h1>
+      <div className="bg-white">
+        <Breadcrumbs
+          path={[
+            { title: "Каталог", id: 1, href: "/" },
+            { title: "Оборудование", id: 2 },
+          ]}
+        />
 
-      <ul>
-        {allProducts.map((p) => (
-          <li key={p.id}>
-            {p.title}
-          </li>
-        ))}
-      </ul>
+        <h1 className="products-page__title">Оборудование</h1>
+      </div>
+
+			<div className="bg-white">123</div>
     </Page>
   );
 }

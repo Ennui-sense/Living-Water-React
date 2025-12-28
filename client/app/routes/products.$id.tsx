@@ -3,6 +3,7 @@ import type { Route } from "./+types/products.$id";
 import qs from "qs";
 
 import Page from "~/layouts/Page/Page";
+import Breadcrumbs from "~/components/Breadcrumbs/Breadcrumbs";
 
 interface IProduct {
   id: number;
@@ -55,10 +56,7 @@ export function meta({ loaderData }: Route.MetaArgs) {
     ? `${currentProduct.title} Page`
     : "Страница несуществующего товара";
 
-  return [
-    { title: title },
-    { name: "description", content: description },
-  ];
+  return [{ title: title }, { name: "description", content: description }];
 }
 
 export default function ProductRoute({
@@ -80,5 +78,21 @@ export default function ProductRoute({
     );
   }
 
-  return <Page>ТЫ НАХУЙ НА СТРАНИЦЕ - {currentProduct.title}</Page>;
+  return (
+    <Page>
+      <div className="bg-white">
+        <Breadcrumbs
+          path={[
+            { title: "Каталог", id: 1, href: "/" },
+            { title: "Оборудование", id: 2, href: "/products" },
+            { title: "Аппараты", id: 3 },
+          ]}
+        />
+
+        <h1 className="product-page__title">{currentProduct.title}</h1>
+      </div>
+
+      <div className="bg-white">123</div>
+    </Page>
+  );
 }

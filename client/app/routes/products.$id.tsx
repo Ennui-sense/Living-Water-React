@@ -76,8 +76,8 @@ export default function ProductRoute({
         <p>Возможно, товар с id - "{ProductParam}" не существует.</p>
       </>
     );
-  }
-
+	}
+	
   return (
     <Page>
       <div className="bg-white">

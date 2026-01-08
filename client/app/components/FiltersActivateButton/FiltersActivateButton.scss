@@ -1,0 +1,32 @@
+@use "~/styles/helpers" as *;
+
+.filters-activate-button {
+  @include button-reset;
+  @include flex-center(true);
+
+  padding-inline: rem(15);
+  border: var(--border);
+  border-color: var(--color-gray-80);
+  border-radius: var(--border-radius-small);
+  height: var(--filter-button-height);
+  font-size: rem(14);
+  line-height: 1.07;
+	column-gap: rem(5);
+
+	@include hover {
+		border-color: currentColor;
+	}
+
+	&:active {
+		border-color: var(--color-accent);
+	}
+
+	&::after {
+		@include square(rem(15));
+		@include flex-center(true);
+
+		content: "";
+		background: url("../../assets/icons/navigate-right.svg") center / cover no-repeat;
+		rotate: 90deg;
+	}
+}

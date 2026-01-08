@@ -1,10 +1,21 @@
-import { ProductsCardsData } from "~/data/ProductsCardsData";
+import clsx from "clsx";
+import "../../sections/Products/Products.scss";
+
 import ProductsCard from "../ProductsCard/ProductsCard";
 
-const ProductsList = () => {
+import type { IProduct } from "~/interfaces/IProduct";
+
+interface ProductsListProps {
+  products: IProduct[];
+  gridColumns: number;
+}
+
+const ProductsList = ({ products, gridColumns }: ProductsListProps) => {
   return (
-    <ul className="products__list">
-      {ProductsCardsData.map((product) => (
+    <ul
+      className={clsx("products__list", `products__list--grid-${gridColumns}`)}
+    >
+      {products.map((product) => (
         <li className="products__item" key={product.id}>
           <ProductsCard product={product}></ProductsCard>
         </li>

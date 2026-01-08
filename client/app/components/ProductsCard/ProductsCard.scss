@@ -4,9 +4,9 @@
   position: relative;
   border-radius: var(--border-radius);
 
-	@include desktop {
-		width: 100%;
-	}
+	// @include desktop {
+	// 	width: 100%;
+	// }
 
 	&::after {
 		content: "";

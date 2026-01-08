@@ -1,0 +1,19 @@
+@use "~/styles/helpers" as *;
+
+.catalog {
+  &__title {
+    display: flex;
+    column-gap: rem(15);
+		margin-bottom: rem(50);
+
+    &-count {
+      font-size: rem(14);
+      line-height: 1.07;
+			color: var(--color-gray-60);
+    }
+  }
+
+	&__categories {
+		margin-bottom: rem(30);
+	}
+}

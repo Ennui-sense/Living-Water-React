@@ -13,6 +13,54 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "isNew": {
+      "type": "boolean"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "source": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::source.source"
+    },
+    "placement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::placement.placement"
+    },
+    "type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::type.type"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "tankVolume": {
+      "type": "integer"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "depth": {
+      "type": "integer"
     }
   }
 }

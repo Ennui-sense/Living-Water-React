@@ -6,26 +6,61 @@ import Notification from "../Notification/Notification";
 
 import CompareIcon from "~/assets/icons/compare.svg?react";
 
-import type { IProductsCard } from "~/data/ProductsCardsData";
 import { useCart } from "~/hooks/useCart";
 
 import { useCompare } from "~/hooks/useCompare";
 
 import { useState, useEffect } from "react";
 
+import type { IProduct } from "~/interfaces/IProduct";
+
 interface ProductsCardProps {
-  product: IProductsCard;
+  product: IProduct;
 }
 
 const ProductsCard = ({ product }: ProductsCardProps) => {
-  const { imageSrc, imageHoverSrc, isNew, title, price, sizes } = product;
+  const {
+    category,
+    tankVolume,
+    type,
+    id,
+    images,
+    isNew,
+    placement,
+    price,
+    width,
+    height,
+    depth,
+    title,
+    source,
+  } = product;
 
-  const { addToCart } = useCart();
-  const { addToCompare, compareItems } = useCompare();
+	const { addToCart } = useCart();
+	const { addToCompare, compareItems } = useCompare();
 
-  const [visibleNotification, setVisibleNotification] =
-    useState<boolean>(false);
-  const [alreadyInCompare, setAlreadyInCompare] = useState<boolean>(false);
+	const [visibleNotification, setVisibleNotification] = useState<boolean>(false);
+	const [alreadyInCompare, setAlreadyInCompare] = useState<boolean>(false);
+
+  const sizes = {
+    height: height,
+    width: width,
+    depth: depth,
+  };
+	
+  const STRAPI_URL = import.meta.env.VITE_STRAPI_API_URL ?? "http://localhost:1337";
+
+  const getStrapiMedia = (url?: string) => {
+    if (!url) return "";
+    return url.startsWith("http") ? url : `${STRAPI_URL}${url}`;
+  };
+
+  const imageSrc = getStrapiMedia(
+    images.find((img) => img.url.includes("right"))?.url
+  );
+
+  const imageHoverSrc = getStrapiMedia(
+    images.find((img) => img.url.includes("hover"))?.url
+  );
 
   const sizeLabels: Record<string, string> = {
     height: "Высота",
@@ -37,16 +72,16 @@ const ProductsCard = ({ product }: ProductsCardProps) => {
     return price.toLocaleString("ru-RU");
   };
 
-const handleClickByCompareButton = (product: IProductsCard) => {
-  const exists = compareItems.some((item) => item.id === product.id);
-  setAlreadyInCompare(exists);
+  const handleClickByCompareButton = (product: IProduct) => {
+    const exists = compareItems.some((item) => item.id === product.id);
+    setAlreadyInCompare(exists);
 
-  if (!exists) {
-    addToCompare(product);
-  }
+    if (!exists) {
+      addToCompare(product);
+    }
 
-  setVisibleNotification(true);
-};
+    setVisibleNotification(true);
+  };
 
   useEffect(() => {
     if (!visibleNotification) return;
@@ -57,15 +92,6 @@ const handleClickByCompareButton = (product: IProductsCard) => {
 
     return () => clearTimeout(timer);
   }, [visibleNotification]);
-
-  const checkAvailabilityInCompare = (product: IProductsCard) => {
-    const test = compareItems.some((item) => item.id === product.id);
-
-    console.log(test);
-    console.log(compareItems);
-
-    return test;
-  };
 
   return (
     <article className="products__card products-card">
@@ -91,8 +117,7 @@ const handleClickByCompareButton = (product: IProductsCard) => {
       <div className="products-card__body">
         <h3 className="products-card__title">{title}</h3>
         <p className="products-card__price">
-          {formatPrice(price)}
-          <span className="products-card__ruble">₽</span>
+          {formatPrice(Number(price))} <span className="products-card__ruble">₽</span>
         </p>
         <div className="products-card__info">
           <div className="products-card__sizes">

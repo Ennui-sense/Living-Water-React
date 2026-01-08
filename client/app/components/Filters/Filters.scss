@@ -1,0 +1,19 @@
+@use "~/styles/helpers" as *;
+
+.filters {
+  &__list {
+    display: flex;
+    column-gap: rem(10);
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__dropdown {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+		transform: translateY(100%);
+  }
+}

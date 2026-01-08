@@ -1,14 +1,11 @@
 import type { Route } from "./+types/products._index";
+import type { IProduct } from "~/interfaces/IProduct";
 
 import qs from "qs";
 
 import Page from "~/layouts/Page/Page";
 import Breadcrumbs from "~/components/Breadcrumbs/Breadcrumbs";
-
-interface IProduct {
-  id: number;
-  title: string;
-}
+import Catalog from "~/sections/Catalog/Catalog";
 
 export async function loader() {
   const BASE_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
@@ -40,14 +37,16 @@ export function meta() {
 export default function ProductsRoute({ loaderData }: Route.ComponentProps) {
   const allProducts: IProduct[] = loaderData.productsData;
 
-  if (!allProducts || allProducts.length === 0) {
-    return (
-      <Page>
-        <h1>Каталог</h1>
-        <p>Товары не найдены</p>
-      </Page>
-    );
-  }
+  // if (!allProducts || allProducts.length === 0) {
+  //   return (
+  //     <Page>
+  //       <h1>Каталог</h1>
+  //       <p>Товары не найдены</p>
+  //     </Page>
+  //   );
+  // }
+
+  // console.log(allProducts[6].images.find((item) => item.url.includes("left")));
 
   return (
     <Page>
@@ -59,10 +58,10 @@ export default function ProductsRoute({ loaderData }: Route.ComponentProps) {
           ]}
         />
 
-        <h1 className="products-page__title">Оборудование</h1>
+        <Catalog products={allProducts}/>
       </div>
 
-			<div className="bg-white">123</div>
+      <div className="bg-white">123</div>
     </Page>
   );
 }

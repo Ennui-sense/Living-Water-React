@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { CartContext } from "~/hooks/useCart";
+import type { IProduct } from "~/interfaces/IProduct";
 
 interface ICartContext {
-  cartItems: Product[];
+  cartItems: CartProduct[];
   getAmount: () => number;	
-  addToCart: (product: Product) => void;
+  addToCart: (product: CartProduct) => void;
   removeFromCart: (productId: number) => void;
   updateCount: (productId: number, newCount: number) => void;
 }
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  imageSrc: string;
-  count: number;
+interface CartProduct extends IProduct {
+	count: number
 }
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [cartItems, setCartItems] = useState<Product[]>(() => {
+  const [cartItems, setCartItems] = useState<CartProduct[]>(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("cart");
       return saved ? JSON.parse(saved) : [];
@@ -33,7 +30,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 		localStorage.setItem("cart", JSON.stringify(cartItems));
 	}, [cartItems])
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: CartProduct) => {
     setCartItems((prev) => {
       const productInCard = prev.find((item) => item.id === product.id);
 

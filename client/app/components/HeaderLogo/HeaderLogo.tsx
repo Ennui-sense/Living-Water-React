@@ -5,7 +5,7 @@ import HeaderLogoImageSrc from "~/assets/images/logo.svg";
 const HeaderLogo = () => {
   return (
     <figure className="logo">
-      <a href="#" className="logo__link">
+      <a href="/" className="logo__link">
         <img
           src={HeaderLogoImageSrc}
           alt="Логотип нашей компании"

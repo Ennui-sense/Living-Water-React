@@ -1,14 +1,10 @@
 import { createContext, useContext } from "react";
+import type { IProduct } from "~/interfaces/IProduct";
+
 
 interface ICompareContext {
-	compareItems: Product[];
-	addToCompare: (product: Product) => void;
-}
-
-interface Product {
-	id: number;
-	title: string;
-	imageSrc: string;
+	compareItems: IProduct[];
+	addToCompare: (product: IProduct) => void;
 }
 
 export const CompareContext = createContext<ICompareContext | undefined>(undefined)

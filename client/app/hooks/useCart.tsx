@@ -1,19 +1,16 @@
 import { createContext, useContext } from "react";
+import type { IProduct } from "~/interfaces/IProduct";
 
 interface ICartContext {
-  cartItems: Product[];
+  cartItems: CartProduct[];
   getAmount: () => number;
-  addToCart: (product: Product) => void;
+  addToCart: (product: CartProduct) => void;
   removeFromCart: (productId: number) => void;
 	updateCount: (productId: number, newCount: number) => void
 }
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  imageSrc: string;
-  count: number;
+interface CartProduct extends IProduct {
+	count: number
 }
 
 export const CartContext = createContext<ICartContext | undefined>(undefined)

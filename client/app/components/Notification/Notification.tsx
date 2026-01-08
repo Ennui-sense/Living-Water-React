@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 interface NotificationProps {
   title: string;
-  imageSrc: string;
+  imageSrc: string | undefined;
   availabilityInCompare: boolean;
 	isVisible: boolean;
 	closeModal: () => void

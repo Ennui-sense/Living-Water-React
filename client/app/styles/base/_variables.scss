@@ -22,12 +22,15 @@
 	--container-width: #{rem(1290)};
 	--container-padding-x: #{rem(25)};
 
-	--button-height: #{rem(55)};
 	--button-height-large: #{rem(65)};
+	--button-height: #{rem(55)};
 	--button-height-small: #{rem(25)};
+
+	--filter-button-height: #{rem(35)};
 
 	--border: #{rem(1)} solid currentColor;
 
+	--border-radius-x-small: #{rem(4)};
 	--border-radius-small: #{rem(8)};
 	--border-radius: #{rem(16)};
 	--border-radius-large: #{rem(30)};

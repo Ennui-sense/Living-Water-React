@@ -5,11 +5,15 @@ import type { IProduct } from "~/interfaces/IProduct";
 import Categories from "~/components/Categories/Categories";
 import ProductsList from "~/components/ProductsList/ProductsList";
 
+import { useFilters } from "~/hooks/useFilters";
+
 interface CatalogProps {
   products: IProduct[];
 }
 
 const Catalog = ({ products }: CatalogProps) => {
+  const { filteredProducts } = useFilters();
+
   return (
     <section className="catalog container">
       <div className="catalog__title">
@@ -22,7 +26,7 @@ const Catalog = ({ products }: CatalogProps) => {
       <div className="catalog__inner">
         <Categories className="catalog__categories" />
 
-        <ProductsList products={products} gridColumns={4} />
+        <ProductsList products={filteredProducts} gridColumns={4} />
       </div>
     </section>
   );

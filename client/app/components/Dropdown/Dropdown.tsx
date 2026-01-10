@@ -3,6 +3,7 @@ import "./Dropdown.scss";
 import type { IFilterVariant } from "~/data/FiltersData";
 import { useState } from "react";
 import type { IProduct } from "~/interfaces/IProduct";
+import { useFilters } from "~/hooks/useFilters";
 
 interface DropdownProps {
   className: string;
@@ -17,35 +18,11 @@ const Dropdown = ({
   value,
   allProducts,
 }: DropdownProps) => {
-  const [selected, setSelected] = useState<string[]>([]);
-
-  const handleSelectOption = (value: string) => {
-    if (selected.includes(value)) {
-      setSelected((prev) => prev.filter((option) => option !== value));
-    } else {
-      setSelected((prev) => [...prev, value]);
-    }
-  };
+  const { addFilter, countProductsOfFilter } = useFilters();
 
   if (!variants) {
     return null;
   }
-
-  const countProducts = (variantValue: string) => {
-		let counter = 0;
-
-    allProducts.map((product) => {
-      for (const key in product) {
-        if (key === value) {
-          if (product[key].value === variantValue) {
-						counter += 1
-					}
-        }
-      }
-    });
-
-		return counter
-  };
 
   return (
     <div className={clsx("dropdown", className)}>
@@ -58,7 +35,7 @@ const Dropdown = ({
                 name={variant.value}
                 id={variant.value}
                 className="dropdown__checkbox-input"
-                onChange={() => handleSelectOption(variant.value)}
+                onChange={() => addFilter(variant.value)}
               />
               <label
                 htmlFor={variant.value}
@@ -68,7 +45,7 @@ const Dropdown = ({
               </label>
             </div>
 
-            <p className="dropdown__count">{countProducts(variant.value)}</p>
+            <p className="dropdown__count">{countProductsOfFilter(variant.value)}</p>
           </div>
         ))}
       </form>

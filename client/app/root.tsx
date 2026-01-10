@@ -10,6 +10,7 @@ import "./styles/main.scss";
 
 import { CartProvider } from "./contexts/CartContext";
 import { CompareProvider } from "./contexts/CompareContext";
+import { FiltersProvider } from "./contexts/FiltersContext";
 
 import type { Route } from "./+types/root";
 
@@ -35,7 +36,9 @@ export default function App() {
   return (
     <CartProvider>
       <CompareProvider>
-        <Outlet />
+        <FiltersProvider>
+          <Outlet />
+        </FiltersProvider>
       </CompareProvider>
     </CartProvider>
   );

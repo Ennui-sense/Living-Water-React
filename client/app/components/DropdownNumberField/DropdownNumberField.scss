@@ -1,0 +1,36 @@
+@use "~/styles/helpers" as *;
+
+.dropdown-number-field {
+  position: relative;
+  height: var(--button-height);
+  border: 1px solid red;
+  border-radius: var(--border-radius-small);
+  border-color: var(--color-gray-80);
+  box-sizing: content-box;
+  font-size: rem(14);
+  line-height: 107%;
+
+  &__input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: inherit;
+    text-align: end;
+    padding: 0;
+    padding-right: rem(35);
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: rem(20);
+  }
+
+  &__unit {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: rem(20);
+  }
+}

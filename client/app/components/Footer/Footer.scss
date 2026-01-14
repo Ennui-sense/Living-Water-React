@@ -1,10 +1,10 @@
 @use "~/styles/helpers/" as *;
 
 .footer {
-	padding-bottom: rem(30);
+	padding-block: rem(100) rem(30);
 	
 	@include mobile {
-		padding-bottom: rem(50);
+		padding-block: rem(60) rem(50);
 	}
 
 	&__inner {

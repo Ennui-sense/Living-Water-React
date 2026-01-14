@@ -31,7 +31,7 @@ export default function IndexRoute() {
 
       <Machine />
 
-      <div className="bg-white">
+      <div className="bg-white bg-white--index-page">
         <Reviews />
         <News />
       </div>

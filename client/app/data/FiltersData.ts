@@ -8,7 +8,8 @@ interface IFilter {
   value: string;
   type: "checkbox" | "input";
   id: number;
-  variants?: IFilterVariant[];
+  variants: IFilterVariant[];
+  unit?: string;
 }
 
 export const FiltersData: IFilter[] = [
@@ -28,12 +29,28 @@ export const FiltersData: IFilter[] = [
     value: "price",
     type: "input",
     id: 2,
+    unit: "₽",
+    variants: [
+      { value: "minPrice", label: "от" },
+      { value: "maxPrice", label: "до" },
+    ],
   },
   {
     label: "Объем бака",
     value: "tankVolume",
     type: "input",
     id: 3,
+    unit: "л",
+    variants: [
+      {
+        value: "minTankVolume",
+        label: "от",
+      },
+      {
+        value: "maxTankVolume",
+        label: "до",
+      },
+    ],
   },
   {
     label: "Источник воды",

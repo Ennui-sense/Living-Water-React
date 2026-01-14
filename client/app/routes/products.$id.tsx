@@ -91,8 +91,6 @@ export default function ProductRoute({
 
         <h1 className="product-page__title">{currentProduct.title}</h1>
       </div>
-
-      <div className="bg-white">123</div>
     </Page>
   );
 }

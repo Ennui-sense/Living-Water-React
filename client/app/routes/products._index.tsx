@@ -60,8 +60,6 @@ export default function ProductsRoute({ loaderData }: Route.ComponentProps) {
 
         <Catalog products={allProducts}/>
       </div>
-
-      <div className="bg-white">123</div>
     </Page>
   );
 }

@@ -7,6 +7,10 @@
   justify-content: start;
   row-gap: rem(50);
 
+	&:has(.cta) {
+		margin-bottom: rem(100);
+	}
+
   &--gray {
     padding-block: rem(200);
     background-color: var(--color-gray-100);

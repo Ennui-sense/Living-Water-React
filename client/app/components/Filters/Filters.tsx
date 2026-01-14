@@ -4,57 +4,38 @@ import FiltersActivateButton from "../FiltersActivateButton/FiltersActivateButto
 import Dropdown from "../Dropdown/Dropdown";
 
 import clsx from "clsx";
-import qs from "qs"; 
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { FiltersData } from "~/data/FiltersData";
-import type { IProduct } from "~/interfaces/IProduct";
-
-interface ProductsResponse {
-  data: IProduct[];
-}
-
-interface ProductsData {
-  ProductsData: ProductsResponse;
-}
 
 const Filters = () => {
   const [activeid, setActiveid] = useState<number | null>(null);
-  const [data, setData] = useState<ProductsData | null>(null);
-
-  useEffect(() => {
-    async function loadData() {
-      const BASE_URL =
-        import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
-      const path = "/api/products";
-      const url = new URL(path, BASE_URL);
-
-      url.search = qs.stringify(
-        {
-          populate: "*",
-        },
-        { encodeValuesOnly: true }
-      );
-
-      const response = await fetch(url.href);
-      const ProductsData = await response.json();
-
-      setData({ ProductsData });
-    }
-
-    loadData();
-  }, []);
-
-  if (!data) return <p>No data found</p>;
+  const filtersRef = useRef<HTMLDivElement>(null);
 
   const handleClick = (id: number) => {
-    setActiveid(id);
+    setActiveid(activeid === id ? null : id);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        filtersRef.current &&
+        !filtersRef.current.contains(event.target as Node)
+      ) {
+        setActiveid(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [filtersRef]);
 
   return (
-    <div className="filters">
+    <div className="filters" ref={filtersRef}>
       <ul className="filters__list">
         {FiltersData.map((filter) => (
           <li className="filters__item" key={filter.id}>
@@ -62,15 +43,16 @@ const Filters = () => {
               title={filter.label}
               onClick={() => handleClick(filter.id)}
               className={clsx("filters__activate-button", {
-                "filters__activate-button--focus": activeid === filter.id,
+                "filters-activate-button--focus": activeid === filter.id,
               })}
             />
             {activeid === filter.id && (
               <Dropdown
                 className="filters__dropdown"
                 variants={filter.variants}
-								value={filter.value}
-								allProducts={data.ProductsData.data}
+                category={filter.value} 
+								type={filter.type}
+								unit={filter.unit}
               />
             )}
           </li>

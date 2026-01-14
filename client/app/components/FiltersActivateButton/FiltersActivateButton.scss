@@ -11,22 +11,34 @@
   height: var(--filter-button-height);
   font-size: rem(14);
   line-height: 1.07;
-	column-gap: rem(5);
+  column-gap: rem(5);
 
-	@include hover {
-		border-color: currentColor;
-	}
+  &:where(:not(.filters-activate-button--focus)) {
+    @include hover {
+      border-color: currentColor;
+    }
+  }
 
-	&:active {
-		border-color: var(--color-accent);
-	}
+  &:active {
+    border-color: var(--color-accent);
+  }
 
-	&::after {
-		@include square(rem(15));
-		@include flex-center(true);
+  &::after {
+    @include square(rem(15));
+    @include flex-center(true);
 
-		content: "";
-		background: url("../../assets/icons/navigate-right.svg") center / cover no-repeat;
-		rotate: 90deg;
-	}
+    content: "";
+    background: url("../../assets/icons/navigate-right.svg") center / cover
+      no-repeat;
+    rotate: 90deg;
+		transition-duration: var(--transition-duration);
+  }
+
+  &--focus {
+    border-color: var(--color-accent);
+		
+		&::after {
+			rotate: -90deg;
+		}
+  }
 }

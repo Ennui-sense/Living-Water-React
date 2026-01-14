@@ -1,6 +1,8 @@
 @use "~/styles/helpers" as *;
 
 .catalog {
+	padding-bottom: rem(200);
+
   &__title {
     display: flex;
     column-gap: rem(15);

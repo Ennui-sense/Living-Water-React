@@ -1,0 +1,81 @@
+@use "~/styles/helpers" as *;
+
+.dropdown-checkbox-field {
+  padding: rem(15) rem(20);
+  display: flex;
+  justify-content: space-between;
+  border-radius: var(--border-radius-small);
+  position: relative;
+
+  &:not(:has(.dropdown-checkbox-field__input--checked)) {
+    @include hover {
+      background-color: var(--color-gray-100);
+
+      .dropdown-checkbox-field__input {
+        border-color: var(--color-dark);
+      }
+    }
+  }
+
+  &__action {
+    display: flex;
+    column-gap: rem(10);
+    align-items: start;
+
+    &:has(.dropdown-checkbox-field__input--checked) {
+      .dropdown-checkbox-field__label {
+        color: var(--color-accent);
+      }
+
+      .dropdown-checkbox-field__input {
+        border-color: var(--color-accent);
+      }
+    }
+  }
+
+  &__input {
+    @include square(rem(20));
+    @include flex-center(true);
+
+    appearance: none;
+    border-radius: var(--border-radius-x-small);
+    border: var(--border);
+    color: var(--color-gray-80);
+    margin: 0;
+    min-width: rem(20);
+    transition-duration: var(--transition-duration);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+    }
+
+    &::after {
+      @include square(0);
+
+      content: "";
+      display: flex;
+      background: url("../../assets/icons/check.svg") center / cover no-repeat;
+      transition-duration: var(--transition-duration);
+    }
+
+    &--checked {
+      &::after {
+        @include square(rem(15));
+      }
+    }
+  }
+
+  &__label {
+    font-size: rem(14);
+    line-height: 1.43;
+  }
+
+  &__count {
+    font-size: rem(14);
+    line-height: 1.43;
+    color: var(--color-gray-80);
+  }
+}

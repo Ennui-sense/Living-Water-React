@@ -12,12 +12,14 @@
     }
   }
 
-  &:last-of-type {
-    border-radius: var(--border-radius-x-large);
-    padding-top: rem(200);
+  &--index-page {
+    &:last-of-type {
+      border-radius: var(--border-radius-x-large);
+      padding-top: rem(200);
 
-    .section:last-child {
-      padding-bottom: rem(200);
+      .section:last-child {
+        padding-bottom: rem(200);
+      }
     }
   }
 }

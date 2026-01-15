@@ -4,23 +4,29 @@ import CrossButton from "../CrossButton/CrossButton";
 
 import clsx from "clsx";
 
+import { motion } from "framer-motion";
+
 interface NotificationProps {
   title: string;
   imageSrc: string | undefined;
   availabilityInCompare: boolean;
-	isVisible: boolean;
-	closeModal: () => void
+  closeModal: () => void;
 }
 
 const Notification = ({
   title,
   imageSrc,
   availabilityInCompare,
-	isVisible,
-	closeModal
+  closeModal,
 }: NotificationProps) => {
   return (
-    <div className={clsx("notification", isVisible && "notification--visible")}>
+    <motion.div
+      className="notification"
+      initial={{ x: 400 }}
+      animate={{ x: 0 }}
+			exit={{x: 400}}
+			transition={{duration: 0.4, ease: "easeIn"}}
+    >
       <div className="notification__inner">
         <div className="notification__wrapper-image">
           <img
@@ -44,8 +50,14 @@ const Notification = ({
         )}
       </div>
 
-			<CrossButton top="1.25rem" right="1.25rem" onCloseButtonClick={closeModal}></CrossButton>
-    </div>
+      <CrossButton
+        top="1.25rem"
+        right="1.25rem"
+        onCloseButtonClick={closeModal}
+      ></CrossButton>
+    </motion.div>
+    // <div className={clsx("notification", isVisible && "notification--visible")}>
+    // </div>
   );
 };
 

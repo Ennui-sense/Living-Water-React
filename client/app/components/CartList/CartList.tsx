@@ -6,14 +6,10 @@ const CartList = () => {
 
   return (
     <ul className="cart__filled-list">
-      {cartItems.map(({ id, imageSrc, title, price, count }) => (
+      {cartItems.map((product) => (
         <CartCard
-          imageSrc={imageSrc}
-          title={title}
-          price={price}
-          count={count}
-          id={id}
-          key={id}
+          product={product}
+          key={product.id}
         />
       ))}
     </ul>

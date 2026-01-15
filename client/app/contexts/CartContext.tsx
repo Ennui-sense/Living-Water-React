@@ -10,7 +10,7 @@ interface ICartContext {
   updateCount: (productId: number, newCount: number) => void;
 }
 
-interface CartProduct extends IProduct {
+export interface CartProduct extends IProduct {
 	count: number
 }
 

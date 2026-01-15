@@ -7,12 +7,12 @@ import Notification from "../Notification/Notification";
 import CompareIcon from "~/assets/icons/compare.svg?react";
 
 import { useCart } from "~/hooks/useCart";
-
 import { useCompare } from "~/hooks/useCompare";
-
 import { useState, useEffect } from "react";
 
 import type { IProduct } from "~/interfaces/IProduct";
+
+import { AnimatePresence } from "framer-motion";
 
 interface ProductsCardProps {
   product: IProduct;
@@ -35,19 +35,21 @@ const ProductsCard = ({ product }: ProductsCardProps) => {
     source,
   } = product;
 
-	const { addToCart } = useCart();
-	const { addToCompare, compareItems } = useCompare();
+  const { addToCart } = useCart();
+  const { addToCompare, compareItems } = useCompare();
 
-	const [visibleNotification, setVisibleNotification] = useState<boolean>(false);
-	const [alreadyInCompare, setAlreadyInCompare] = useState<boolean>(false);
+  const [visibleNotification, setVisibleNotification] =
+    useState<boolean>(false);
+  const [alreadyInCompare, setAlreadyInCompare] = useState<boolean>(false);
 
   const sizes = {
     height: height,
     width: width,
     depth: depth,
   };
-	
-  const STRAPI_URL = import.meta.env.VITE_STRAPI_API_URL ?? "http://localhost:1337";
+
+  const STRAPI_URL =
+    import.meta.env.VITE_STRAPI_API_URL ?? "http://localhost:1337";
 
   const getStrapiMedia = (url?: string) => {
     if (!url) return "";
@@ -117,7 +119,8 @@ const ProductsCard = ({ product }: ProductsCardProps) => {
       <div className="products-card__body">
         <h3 className="products-card__title">{title}</h3>
         <p className="products-card__price">
-          {formatPrice(Number(price))} <span className="products-card__ruble">₽</span>
+          {formatPrice(Number(price))}{" "}
+          <span className="products-card__ruble">₽</span>
         </p>
         <div className="products-card__info">
           <div className="products-card__sizes">
@@ -144,13 +147,17 @@ const ProductsCard = ({ product }: ProductsCardProps) => {
         </div>
       </div>
 
-      <Notification
-        title={title}
-        imageSrc={imageSrc}
-        availabilityInCompare={alreadyInCompare}
-        isVisible={visibleNotification}
-        closeModal={() => setVisibleNotification(false)}
-      />
+      <AnimatePresence>
+        {visibleNotification && (
+          <Notification
+            key="notification"
+            title={title}
+            imageSrc={imageSrc}
+            availabilityInCompare={alreadyInCompare}
+            closeModal={() => setVisibleNotification(false)}
+          />
+        )}
+      </AnimatePresence>
     </article>
   );
 };

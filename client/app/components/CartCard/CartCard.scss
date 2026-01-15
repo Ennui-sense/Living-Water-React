@@ -40,6 +40,10 @@
     padding: rem(8);
   }
 
+	&__image {
+		@include square(rem(75));
+	}
+
   &__info {
     display: flex;
     flex-direction: column;

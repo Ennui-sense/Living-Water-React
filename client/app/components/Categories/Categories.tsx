@@ -3,7 +3,7 @@ import "./Categories.scss";
 import clsx from "clsx";
 
 import Filters from "../Filters/Filters";
-import SortButton from "../SortButton/SortButton";
+import Sort from "../Sort/Sort";
 
 interface CategoriesProps {
   className: string;
@@ -13,7 +13,7 @@ const Categories = ({ className }: CategoriesProps) => {
   return (
     <div className={clsx(className, "categories")}>
       <Filters />
-			<SortButton/>
+			<Sort/>
     </div>
   );
 };

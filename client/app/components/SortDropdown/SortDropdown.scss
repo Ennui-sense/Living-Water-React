@@ -1,0 +1,10 @@
+@use "~/styles/helpers" as *;
+
+.sort-dropdown {
+  z-index: 100;
+  background-color: var(--color-light);
+  padding: rem(20) rem(15);
+  width: rem(280);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius-small);
+}

@@ -4,68 +4,72 @@
   position: relative;
   border-radius: var(--border-radius);
 
-	// @include desktop {
-	// 	width: 100%;
-	// }
+  @include desktop {
+    width: 100%;
+  }
 
-	&::after {
-		content: "";
-		position:absolute;
-		inset: 0;
-		border-radius: var(--border-radius);
-	}
-	
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius);
+  }
+
   @include hover(false) {
-		&::after {
-			box-shadow: var(--shadow);
-			height: rem(578);
-		}
+    &::after {
+      box-shadow: var(--shadow);
+      height: rem(578);
+    }
 
-		.products-card__image {
-			opacity: 0;
-		}
+    .products-card__image {
+      opacity: 0;
+    }
 
-		.products-card__image-hover {
-			opacity: 1;
-		}
+    .products-card__image-hover {
+      opacity: 1;
+    }
 
-		.products-card__info {
-			display: flex;
-			opacity: 1;
-		}
+    .products-card__info {
+      display: flex;
+      opacity: 1;
+    }
+
+    .products-card__link {
+      height: rem(578);
+    }
   }
 
   &__image {
     @include square(rem(250));
 
-		transition-duration: var(--transition-duration);
+    transition-duration: var(--transition-duration);
 
-		@include mobile {
-			@include square(rem(175))
-		}
+    @include mobile {
+      @include square(rem(175));
+    }
 
-		@include mobile-s {
-			@include square(rem(140))
-		}
+    @include mobile-s {
+      @include square(rem(140));
+    }
 
     &-wrapper {
-			@include flex-center;
+      @include flex-center;
 
       height: rem(300);
-			width: 100%;
+      width: 100%;
       padding: rem(25);
       background-color: var(--color-accent-light);
       border-radius: var(--border-radius);
       position: relative;
 
-			@include mobile {
-				height: rem(250);
-				padding: rem(16);
-			}
+      @include mobile {
+        height: rem(250);
+        padding: rem(16);
+      }
 
-			@include mobile-s {
-				height: rem(200);
-			}
+      @include mobile-s {
+        height: rem(200);
+      }
 
       .button {
         position: absolute;
@@ -74,17 +78,17 @@
       }
     }
 
-		&-hover {
-			height: 100%;
-			width: 100%;
-			object-fit: cover;
-			position: absolute;
-			top: 0;
-			left: 0;
-			opacity: 0;
-			border-radius: var(--border-radius) var(--border-radius) 0 0;
-			transition-duration: var(--transition-duration);
-		}
+    &-hover {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      transition-duration: var(--transition-duration);
+    }
   }
 
   &__body {
@@ -100,11 +104,11 @@
     line-height: 1.56;
     letter-spacing: -0.02em;
     max-width: rem(260);
-		z-index: 100;
+    z-index: 100;
 
-		@include desktop {
-			max-width: 100%;
-		}
+    @include desktop {
+      max-width: 100%;
+    }
   }
 
   &__price {
@@ -112,7 +116,7 @@
     font-size: rem(18);
     line-height: 1.39;
     letter-spacing: -0.02em;
-		z-index: 100;
+    z-index: 100;
   }
 
   &__ruble {
@@ -125,14 +129,14 @@
     left: 0;
     width: 100%;
     background-color: var(--color-light);
-    z-index: 100;
     padding: rem(20) rem(15) rem(25);
-		display: none;
+    display: none;
     flex-direction: column;
     row-gap: rem(40);
-		opacity: 0;
-		transition-duration: var(--transition-duration);
-		border-radius: 0 0 var(--border-radius) var(--border-radius);
+    opacity: 0;
+    transition-duration: var(--transition-duration);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+		z-index: 2;
   }
 
   &__sizes {
@@ -144,15 +148,16 @@
     display: flex;
     flex-direction: column;
     row-gap: rem(5);
-		position: relative;
+    position: relative;
+    z-index: 100;
 
     &:not(:last-child) {
       &::after {
         content: "x";
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				margin-right: rem(-22);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-right: rem(-22);
         font-size: rem(12);
         line-height: 1.08;
         letter-spacing: 0.01em;
@@ -176,9 +181,16 @@
   &__buttons {
     display: flex;
     column-gap: rem(10);
+    z-index: 100;
 
     .button {
       flex-grow: 1;
     }
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    // z-index: 2;
   }
 }

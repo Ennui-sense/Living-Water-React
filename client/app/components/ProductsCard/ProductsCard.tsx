@@ -23,16 +23,16 @@ const ProductsCard = ({ product }: ProductsCardProps) => {
     category,
     tankVolume,
     type,
+    placement,
+    source,
     id,
     images,
     isNew,
-    placement,
     price,
     width,
     height,
     depth,
     title,
-    source,
   } = product;
 
   const { addToCart } = useCart();
@@ -146,6 +146,8 @@ const ProductsCard = ({ product }: ProductsCardProps) => {
           </div>
         </div>
       </div>
+
+			<a href={`/products/${id}`} className="products-card__link"></a>
 
       <AnimatePresence>
         {visibleNotification && (

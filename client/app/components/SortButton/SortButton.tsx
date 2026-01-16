@@ -1,12 +1,19 @@
-import './SortButton.scss'
+import "./SortButton.scss";
 import SortIcon from "~/assets/icons/sort.svg?react";
 
-const SortButton = () => {
+interface SortButtonProps {
+  onClick: () => void;
+  activeSortLabel: string;
+}
+
+const SortButton = ({ onClick, activeSortLabel }: SortButtonProps) => {
   return (
-    <button type="button" className="sort-button">
-      Рекомендуем
-      <SortIcon />
-    </button>
+    <>
+      <button type="button" className="sort-button" onClick={onClick}>
+        {activeSortLabel}
+        <SortIcon />
+      </button>
+    </>
   );
 };
 

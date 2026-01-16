@@ -36,7 +36,7 @@ export const useFilters = () => {
   const context = useContext(FiltersContext);
   if (context === undefined) {
     throw new Error(
-      "useCart может быть использован только вместе с CartProvider"
+      "useFilters может быть использован только вместе с FiltersProvider"
     );
   }
 

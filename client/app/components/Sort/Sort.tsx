@@ -4,6 +4,7 @@ import SortButton from "../SortButton/SortButton";
 import SortDropdown from "../SortDropdown/SortDropdown";
 
 import { useState, useRef, useEffect } from "react";
+import { useSort } from "~/hooks/useSort";
 
 import type { ISortField } from "~/data/SortData";
 
@@ -11,14 +12,12 @@ import { SortData } from "~/data/SortData";
 
 const Sort = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const [activeSortField, setActiveSortField] = useState<ISortField>(
-    SortData.filter((item) => item.id === 1)[0]
-  );
+  const { activeSortCategory, setActiveSortCategory } = useSort();
+
+  const activeSortField = SortData.find((item) => item.value === activeSortCategory) || SortData[0];
 
   const handleClick = (clickedField: ISortField) => {
-    setActiveSortField(
-      activeSortField.id === clickedField.id ? activeSortField : clickedField
-    );
+    setActiveSortCategory(clickedField.value);
     setOpen(false);
   };
 

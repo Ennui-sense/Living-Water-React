@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import type { IProduct } from "~/interfaces/IProduct";
 import { FiltersContext } from "~/hooks/useFilters";
 import qs from "qs";
+import { useSort } from "~/hooks/useSort";
 
 interface IActiveFilters {
   [key: string]: string[];
@@ -87,6 +88,8 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({
     loadData();
   }, []);
 
+	const { applySort, activeSortCategory } = useSort();
+
   useEffect(() => {
     const activeCategories = Object.keys(filters).filter(
       (key) => filters[key].length > 0
@@ -110,8 +113,10 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({
       return categoryMatch && priceMatch && tankMatch;
     });
 
-    setFilteredProducts(filtered);
-  }, [filters, ranges, data, allProducts]);
+		const sorted = applySort(filtered)
+
+    setFilteredProducts(sorted);
+  }, [filters, ranges, data, activeSortCategory]);
 
   const getMinMax = () => {
     if (allProducts.length === 0)

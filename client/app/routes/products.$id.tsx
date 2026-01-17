@@ -89,7 +89,7 @@ export default function ProductRoute({
           ]}
         />
 
-        <h1 className="product-page__title">{currentProduct.title}</h1>
+        <h1 className="product-page__title container">{currentProduct.title}</h1>
       </div>
     </Page>
   );

@@ -43,6 +43,7 @@
     @include square(rem(250));
 
     transition-duration: var(--transition-duration);
+		width: 100%;
 
     @include mobile {
       @include square(rem(175));
@@ -136,7 +137,7 @@
     opacity: 0;
     transition-duration: var(--transition-duration);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
-		z-index: 2;
+		z-index: 800;
   }
 
   &__sizes {
@@ -191,6 +192,6 @@
   &__link {
     position: absolute;
     inset: 0;
-    // z-index: 2;
+    z-index: 3;
   }
 }

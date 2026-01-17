@@ -3,5 +3,10 @@
 .categories {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: start;
+
+	@include mobile {
+		flex-direction: column-reverse;
+		row-gap: rem(15);
+	}
 }

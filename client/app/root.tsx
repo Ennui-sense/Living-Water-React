@@ -2,6 +2,7 @@ import {
   isRouteErrorResponse,
   Meta,
   Outlet,
+	Links,
   Scripts,
   ScrollRestoration,
 } from "react-router";
@@ -15,6 +16,12 @@ import { SortProvider } from "./contexts/SortContext";
 
 import type { Route } from "./+types/root";
 
+import stylesheet from "./styles/main.scss?url";
+
+export const links: Route.LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -23,6 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" sizes="48x48"></link>
         <Meta />
+        <Links />
       </head>
       <body id="root">
         {children}

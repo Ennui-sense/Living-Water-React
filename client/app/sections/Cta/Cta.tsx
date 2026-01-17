@@ -37,6 +37,7 @@ const Cta = () => {
                   isOpen={isOpen}
                   closeModal={closeModal}
                   inputs={modal.inputs}
+									key={modal.id}
                 />
               )
           )}

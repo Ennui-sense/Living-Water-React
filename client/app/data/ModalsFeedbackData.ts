@@ -5,6 +5,7 @@ export interface IInputModalFeedback {
 }
 
 export interface IModalFeedback {
+	id: number;
   modalType: string;
   title: string;
   description: string;
@@ -16,6 +17,7 @@ export interface IModalFeedback {
 
 export const ModalsFeedbackData: IModalFeedback[] = [
   {
+		id: 1,
     modalType: "plan",
     title: "Получите наш бизнес-план",
     description: "Заполните форму, чтобы скачать бизнес-план",
@@ -42,6 +44,7 @@ export const ModalsFeedbackData: IModalFeedback[] = [
       "Если в течение нескольких минут загрузка не началась, нажмите по этой ссылке",
   },
   {
+		id: 2,
     modalType: "mailing",
     title: "Подпишитесь на рассылку",
     description:
@@ -58,6 +61,7 @@ export const ModalsFeedbackData: IModalFeedback[] = [
     succesDescription: "На почте вас ждёт уже первое сообщение от нас :)",
   },
   {
+		id: 3,
     modalType: "consultation",
     title: "Закажите консультацию",
     description: "Заполните форму, чтобы с вами мог связаться консультант",

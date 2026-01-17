@@ -57,11 +57,11 @@ const ProductsCard = ({ product }: ProductsCardProps) => {
   };
 
   const imageSrc = getStrapiMedia(
-    images.find((img) => img.url.includes("right"))?.url
+    images.find((img) => img.url.includes("right"))?.url,
   );
 
   const imageHoverSrc = getStrapiMedia(
-    images.find((img) => img.url.includes("hover"))?.url
+    images.find((img) => img.url.includes("hover"))?.url,
   );
 
   const sizeLabels: Record<string, string> = {
@@ -144,10 +144,12 @@ const ProductsCard = ({ product }: ProductsCardProps) => {
               <CompareIcon />
             </ButtonSquare>
           </div>
+
+          <a href={`/products/${id}`} className="products-card__link"></a>
         </div>
       </div>
 
-			<a href={`/products/${id}`} className="products-card__link"></a>
+      <a href={`/products/${id}`} className="products-card__link"></a>
 
       <AnimatePresence>
         {visibleNotification && (

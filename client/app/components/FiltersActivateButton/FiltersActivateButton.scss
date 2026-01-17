@@ -13,6 +13,10 @@
   line-height: 1.07;
   column-gap: rem(5);
 
+	@include mobile {
+		height: var(--button-height);
+	}
+
   &:where(:not(.filters-activate-button--focus)) {
     @include hover {
       border-color: currentColor;

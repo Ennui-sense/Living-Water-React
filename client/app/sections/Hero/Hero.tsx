@@ -43,6 +43,7 @@ const Hero = () => {
                     description={modal.description}
                     buttonText={modal.buttonText}
                     inputs={modal.inputs}
+										key={modal.id}
                   />
                 )
             )}

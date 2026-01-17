@@ -4,6 +4,17 @@
   &__list {
     display: flex;
     column-gap: rem(10);
+    flex-wrap: wrap;
+    row-gap: rem(10);
+    width: 100%;
+
+    .swiper-slide {
+      width: auto;
+    }
+
+    &.swiper {
+      overflow: visible;
+    }
   }
 
   &__item {
@@ -14,6 +25,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
-		transform: translateY(100%);
+    transform: translateY(100%);
+    z-index: 999;
+    pointer-events: all;
   }
 }
